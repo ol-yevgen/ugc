@@ -27,14 +27,13 @@ export default function Home() {
 
     if (isError) return <h1>Some ERROR</h1>
 
-
     return (
         <>
             {/* FIRST SECTION */}
 
-            <div className="max-w-screen-xl mx-auto px-5 mt-10 md:mt-20">
+            <div className="relative z-0 max-w-screen-xl mx-auto px-5 mt-10 md:mt-20">
                 <GradientBox decor={true}>
-                    <div className="relative z-1 flex items-center justify-center gap-5">
+                    <div className="relative z-3 flex items-center justify-center gap-5">
                         <div className="flex flex-col w-full items-center lg:items-start lg:w-4/6">
                             <h1
                                 className="mb-10 text-[20px]/normal text-center md:mb-20 md:text-[30px]/normal lg:text-[40px]/normal lg:text-left">

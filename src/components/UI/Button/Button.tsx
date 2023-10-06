@@ -29,7 +29,7 @@ export default function Button({ path, current, label }: TButtonProps) {
         href={path}
         className={classNames(
             current ? `bg-mainActions text-headerColor` : toggleModeButton,
-            'rounded-full px-6 py-3 text-sm font-medium transition-colors text-center'
+            'rounded-full px-6 py-3 text-sm font-medium transition-colors text-center cursor-pointer'
         )}
         aria-current={'page'}
         >
