@@ -8,6 +8,8 @@ import Image from "next/image";
 import { Fragment } from "react";
 import Link from "next/link";
 
+import Input from '@/components/UI/Input/Input'
+
 export default function Footer() {
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ['footer'],
@@ -25,13 +27,9 @@ export default function Footer() {
                         <h3 className="text-[20px]/[30px] text-white">Subscribe to <span>UGChub</span></h3>
                         <p>Get the newsletters and guides directly on your email from us</p>
                     </div>
-                    <div className="flex flex-1 justify-between items-center p-4 rounded-lg bg-white xl:ml-20">
-                        <input type="text" placeholder="Your email address" className="w-full border-0 text-mainTextColor outline-0" />
-                        <svg width="23" height="15" viewBox="0 0 23 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.3945 14.2812C14.194 14.1094 14.0938 13.8802 14.0938 13.5938C14.0938 13.3073 14.194 13.0638 14.3945 12.8633L18.4766 8.78125H1.03125C0.401042 8.72396 0.0572917 8.36589 0 7.70703C0.0572917 7.10547 0.401042 6.77604 1.03125 6.71875H18.4766L14.3945 2.63672C13.9935 2.14974 13.9935 1.66276 14.3945 1.17578C14.8815 0.77474 15.3685 0.77474 15.8555 1.17578L21.6992 7.01953C22.1003 7.50651 22.1003 7.99349 21.6992 8.48047L15.8555 14.3242C15.3685 14.7253 14.8815 14.7109 14.3945 14.2812Z" fill="#0030AB" />
-                        </svg>
+                    <Input />
 
-                    </div>
+                    
                 </div>
 
                 <div className="flex gap-8 flex-wrap-reverse py-12">
