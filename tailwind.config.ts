@@ -8,39 +8,54 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic':
-                'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+            gridTemplateRows: {
+                "layout": 'auto 1fr auto'
             },
             colors: {
-                actions: 'rgba(0, 48, 171, 1)',
-                actionsHover: 'rgba(0, 48, 171, 0.06)',
-                mainText: '#111827',
-                mainGradient: '174.62% 88.44% at 21.98% 77.48%, rgba(0, 65, 234, 0.80) 10.27%, rgba(41, 0, 205, 0.80) 84.86%)',
+                bodyColor: '#F6F6F6',
                 headerColor: '#F8FAFC',
+                hoverColor: 'rgba(0, 48, 171, 0.06)',
+                mainActions: '#0030AB',
+                mainTextColor: '#111827',
+                storiesColor: '#374151',
+                borderColor: '#9CA3AF',
+                shadowColor: 'rgba(46, 0, 178, 0.30)',
+                burgerBgColor: 'rgba(0, 0, 0, 0.45)',
+                footerTextColor: 'rgba(255, 255, 255, 0.80)',
+                gradientMainFirst: 'rgba(0, 65, 234, 0.8)',
+                gradientMainSecond: 'rgba(41, 0, 205, 0.8)',
+                gradientSecondFirst: 'rgba(0, 65, 234, 0.33)',
+                gradientSecondSecond: 'rgba(255, 255, 255, 0)',
+            },
+            backgroundImage: {
+                "phone-forest": "url('../../public/images/homePage/withUsBg.jpg')"
             },
             boxShadow: {
                 'm': '0px 2px 6px 0px rgba(0, 0, 0, 0.06)',
             },
             transitionTimingFunction: {
-                DEFAULT: 'easy-in-out'
+                DEFAULT: 'ease-in-out'
             },
             transitionDuration: {
                 DEFAULT: '400ms'
             },
+            fontFamily: {
+                main: ['Poppins']
+            },
             keyframes: {
                 fadeIn: {
                     from: {
-                        opacity: '0'
+                        opacity: '0',
+                        left: '-100%'
                     },
                     to: {
-                        opacity: '1'
+                        opacity: '1',
+                        left: '100%'
                     }
                 }
             },
             animation: {
-                fadeIn: 'fadeIn .5s east-in-out'
+                fadeIn: 'fadeIn 5s east-in-out'
             },
             zIndex: {
                 1: '1',
@@ -51,7 +66,12 @@ const config: Config = {
                 6: '6',
                 7: '7',
                 8: '8',
-                9: '9'
+                9: '9',
+                100: '100'
+            },
+            screens: {
+                xs: '528px',
+                ml: '900px'
             }
         },
     },

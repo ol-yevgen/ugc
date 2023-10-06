@@ -1,12 +1,13 @@
 'use client'
 
-import MobileNavigation from '../Navigation/MobileNavigation'
+import MobileNavigation from '../Navigation/MobileMenu'
+import { MobileMenu, NavigationHomePage } from '@/components/index'
 
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import UserMenu from '../Navigation/UserMenu'
-import Navigation from '../Navigation/NavigationHomePage';
 import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
 
 export type TUserNavigation = {
     label: string,
@@ -31,35 +32,44 @@ const userNavigation = [
     { label: 'Sign out', href: '#' },
 ]
 
-function classNames(...classes: any[] ) {
-    return classes.filter(Boolean).join(' ')
-}
-
 export default function Header() {
+    const [burgerMenu, setBurgerMenu] = useState(false)
+
+    const openCloseMenu = useCallback(() => {
+        setBurgerMenu(!burgerMenu)
+    }, [burgerMenu])
+
+    useEffect(() => {
+        const bodyScrollToggle = document.querySelector('html') as HTMLHtmlElement
+        if (burgerMenu) {
+            bodyScrollToggle.classList.add('scrollOff')
+        }
+
+        return () => bodyScrollToggle.classList.remove('scrollOff')
+    }, [burgerMenu])
+
     return (
         <>
-            <header className="min-h-full">
+            <header className="min-h-full relative">
                 <Disclosure as="div" className="bg-headerColor shadow-m">
-                    {({ open }) => (
-                        <>
-                            <div className="mx-auto max-w-7xl px-5 xl:px-0 ">
-                                <div className="flex h-[70px] items-center justify-between">
-                                    <nav className="flex items-center">
-                                        <Link href='/'>
-                                            <span className='customTextGradient text-2xl font-semibold'>UGChub</span>
-                                        </Link>
-                                        <Navigation
-                                            navigation={navigation}
-                                        />
-                                    </nav>
+                    <div className="mx-auto max-w-7xl  xl:px-0 ">
+                        <div className="flex items-center justify-between h-[70px] px-5">
+                            <nav className="flex items-center">
+                                <Link href='/'>
+                                    <span className='customTextGradient text-2xl font-semibold'>UGChub</span>
+                                </Link>
+                                <NavigationHomePage
+                                    navigation={navigation}
+                                />
+                            </nav>
 
-                                    <div>
-                                        <Navigation
-                                            navigation={authLinks}
-                                        />
-                                    </div>
+                            <div>
+                                <NavigationHomePage
+                                    navigation={authLinks}
+                                />
+                            </div>
 
-                                    {/* <div className="hidden md:block">
+                            {/* <div className="hidden md:block">
                                         <div className="ml-4 flex items-center md:ml-6">
                                             <button
                                                 type="button"
@@ -75,26 +85,30 @@ export default function Header() {
                                             />
                                         </div>
                                     </div> */}
-                                    <div className="-mr-2 flex xl:hidden">
-                                        {/* Mobile menu button */}
-                                        <Disclosure.Button className="relative inline-flex items-center justify-center rounded-full  p-2 text-mainText hover:bg-actionsHove focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-actionsHover">
-                                            <span className="absolute -inset-0.5" />
-                                            <span className="sr-only">Open main menu</span>
-                                            {open ? (
-                                                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                                            ) : (
-                                                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                                            )}
-                                        </Disclosure.Button>
-                                    </div>
-                                </div>
+                            <div className="-mr-2 flex xl:hidden">
+                                {/* Mobile menu button */}
+                                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-full  p-2 text-mainText hover:bg-actionsHove focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-actionsHover"
+                                    onClick={() => openCloseMenu()}
+                                >
+                                    <span className="absolute -inset-0.5" />
+                                    {burgerMenu ? (
+                                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                                    ) : (
+                                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                                    )}
+                                </Disclosure.Button>
                             </div>
+                        </div>
+                    </div>
 
-                            <MobileNavigation
-                                navigation={navigation}
-                            />
-                        </>
-                    )}
+                    {burgerMenu
+                        ? <MobileMenu
+                            authLinks={authLinks}
+                            navigation={navigation}
+                            toggleMenu={openCloseMenu}
+                        />
+                        : null
+                    }
                 </Disclosure>
             </header>
         </>

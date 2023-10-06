@@ -1,16 +1,17 @@
 import { v4 as uuidv4 } from "uuid"
 import heroImage from "../../../../public/images/homePage/photo.png"
 import withUsBg from "../../../../public/images/homePage/withUsBg.jpg"
-import firstSlide from '../../../../public/images/homePage/slide.jpg'
+import firstSlide from '../../../../public/images/homePage/slide.png'
 import storyPhoto from '../../../../public/images/homePage/Ricarda.jpg'
 import customersIcon from '../../../../public/images/icons/customers.svg'
 import doneIcon from '../../../../public/images/icons/done.svg'
 import reviewsIcon from '../../../../public/images/icons/reviews.svg'
+import yellowStar from '../../../../public/images/icons/star-yellow.svg'
 
 export async function GET(request: any) {
     const homePageAPI = {
         hero: {
-            heroSectionTitle: "Get user-generated content at a crazy-affordable price.\nWe're a dream for marketers and agencies.",
+            heroSectionTitle: "Get user-generated content at a crazy-affordable price.We're a dream for marketers and agencies.",
             heroCountsInfo: [
                 {
                     id: uuidv4(),
@@ -62,19 +63,19 @@ export async function GET(request: any) {
             provideButtons: [
                 {
                     id: uuidv4(),
-                    title: "Unboxing"
+                    title: "Unboxing",
                 },
                 {
                     id: uuidv4(),
-                    title: "Product Demos"
+                    title: "Product Demos",
                 },
                 {
                     id: uuidv4(),
-                    title: "Reviews"
+                    title: "Reviews",
                 },
                 {
                     id: uuidv4(),
-                    title: "Trend Setter"
+                    title: "Trend Setter",
                 }
             ],
         },
@@ -112,6 +113,7 @@ export async function GET(request: any) {
             storyPhoto: storyPhoto,
             storyName: "Ricarda lben",
             storyRole: "Verified UGC Creator",
+            storyYellowStar: yellowStar,
             storyText: [
                 {
                     id: uuidv4(),

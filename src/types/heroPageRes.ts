@@ -1,4 +1,4 @@
-export interface IHeroPageReq {
+export interface IHeroPageRes {
     hero: IHero
     description: IDescription
     withUs: IWithUs
@@ -67,6 +67,7 @@ export interface ISuccessStories {
     storyPhoto: string
     storyName: string
     storyRole: string
+    storyYellowStar: string,
     storyText: IStoryText[]
     storyStars: string
     storyReviews: string

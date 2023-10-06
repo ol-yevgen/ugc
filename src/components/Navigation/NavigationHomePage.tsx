@@ -1,9 +1,9 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import Button from '../UI/Button'
+import Button from '../UI/Button/Button'
 
-type TNavigation = {
+export type TNavigation = {
     label: string,
     href: string,
     current: boolean
@@ -13,7 +13,7 @@ export type TNavigationProps = {
     navigation: TNavigation[],
 }
 
-export default function Navigation(props: TNavigationProps) {
+export default function NavigationHomePage(props: TNavigationProps) {
     const { navigation } = props
     const pathname = usePathname()
 
@@ -28,9 +28,9 @@ export default function Navigation(props: TNavigationProps) {
                             path={item.href}
                             current={isActive}
                             label={item.label}
-                            bgColor='actions'
-                            textColor='white'
-                            hoverColor='actionsHover'
+                            // bgColor='actions'
+                            // textColor='white'
+                            // hoverColor='actionsHover'
                         />
                     )
                 }

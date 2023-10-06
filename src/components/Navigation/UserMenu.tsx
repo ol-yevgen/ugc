@@ -2,7 +2,7 @@
 
 import { Menu, Transition } from "@headlessui/react"
 import { Fragment } from "react"
-import Avatar from '../UI/Avatar'
+import Avatar from '../UI/Avatar/Avatar'
 
 type TUserMenuProp = {
     classNames: (...classes: any[]) => string,

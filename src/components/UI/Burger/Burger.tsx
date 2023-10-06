@@ -6,12 +6,12 @@ type TButtonProps = {
     path: string,
     current: boolean,
     label: string,
-    bgColor: string,
-    textColor: string,
-    hoverColor: string
+    // bgColor: string,
+    // textColor: string,
+    // hoverColor: string
 }
 
-export default function Button({ path, current, label, bgColor, textColor, hoverColor }: TButtonProps) {
+export default function Burger({ path, current, label }: TButtonProps) {
     function classNames(...classes: any[]) {
         return classes.filter(Boolean).join(' ')
     }
@@ -22,13 +22,13 @@ export default function Button({ path, current, label, bgColor, textColor, hover
         || label === 'Buyer Mode'
     )
 
-    const toggleModeButton = modeLabel ? `text-actions bg-headerColor hover:text-white hover:bg-actions` : `text-mainText hover:bg-${hoverColor}`
+    const toggleModeButton = modeLabel ? `text-actions bg-actionsHover hover:text-white hover:bg-actions` : `text-mainText hover:bg-actionsHover`
 
     return (
         <Link
             href={path}
             className={classNames(
-                current ? `bg-${bgColor} text-${textColor}` : toggleModeButton,
+                current ? `bg-actions text-headerColor` : toggleModeButton,
                 'rounded-full px-6 py-3 text-sm font-medium transition-colors'
             )}
             aria-current={'page'}
