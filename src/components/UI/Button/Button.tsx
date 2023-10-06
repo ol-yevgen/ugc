@@ -22,7 +22,7 @@ export default function Button({ path, current, label }: TButtonProps) {
         || label === 'Buyer Mode'
     )
 
-    const toggleModeButton = modeLabel ? `text-mainActions bg-hoverColor hover:text-white hover:bg-actions` : `text-mainText hover:bg-hoverColor`
+    const toggleModeButton = modeLabel ? `text-mainActions bg-hoverColor hover:bg-actions` : `text-mainText hover:bg-hoverColor`
 
     return (
         <Link
