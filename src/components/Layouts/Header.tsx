@@ -50,7 +50,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="min-h-full relative">
+            <header className="min-h-full relative z-100">
                 <Disclosure as="div" className="bg-headerColor shadow-m">
                     <div className="mx-auto max-w-7xl  xl:px-0 ">
                         <div className="flex items-center justify-between h-[70px] px-5">
