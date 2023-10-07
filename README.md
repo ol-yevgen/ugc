@@ -5,19 +5,15 @@ Open a terminal or console, navigate to the root directory, and run the followin
 First install dependencies:
 
 ```bash
-npm init
+npm install
+# or
+npm i
 ```
 
 Then run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
